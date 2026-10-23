@@ -1,0 +1,9 @@
+# Security verification notes
+
+The runtime dependency audit reported zero known vulnerabilities during development. The full dependency audit reported an unpatched high-severity `braces` advisory (GHSA-vfj7-8cjw-p6xm) through `micromatch` → `fast-glob` → the Next.js ESLint plugin. npm reports five affected packages in this single development-tooling chain and no fix available. This code is used by local lint tooling, is not a production dependency and is not a website request handler. Recheck the advisory and update the lint dependency when a patched release is available; no forced unsupported override was applied.
+
+Contact submissions are validated on both sides, restricted to a configured same-origin JSON request, capped at 16 KiB, and rate limited before parsing. Production requires atomic Redis REST counters with expiry and fails closed if unavailable. The reverse proxy must overwrite client IP headers. A honeypot discards populated bot submissions. SMTP requires TLS and certificate validation, fixed environment-configured sender/recipient addresses, validated reply-to, connection timeouts, and disabled file/URL access. No raw SMTP errors or submitted personal data are logged by the handler.
+
+No database, HTML email template, unsafe user HTML, credential-in-client code, or analytics is present. JSON-LD serializes trusted data and escapes less-than signs. Next.js hydration currently requires inline scripts under the supplied CSP; a nonce-based policy would require an additional request-time rendering design. HSTS is documented for the TLS reverse proxy rather than sent by the local HTTP server.
+
+These implementation and dependency checks do not constitute an external penetration test, certification or legal compliance claim. Real deployment, provider configuration and mailbox delivery require verification in the target environment.

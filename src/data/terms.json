@@ -1,0 +1,64 @@
+[
+  {
+    "id": "agreement",
+    "title": "1. About these terms",
+    "paragraphs": [
+      "These terms apply to your use of the ZassTech public website. By using it, you agree to them. If you do not agree, please do not use the website. “ZassTech”, “we” or “us” refers to the business that owns and operates this website. Add your full registered business name, address and governing law here before publishing.",
+      "Specific ZassTech products may have additional terms presented by the organization that operates them. If those terms apply, they govern that product alongside these website terms."
+    ]
+  },
+  {
+    "id": "products",
+    "title": "2. Product information",
+    "paragraphs": [
+      "This website introduces ZassFood, a multi-vendor food delivery platform; a Doctor & Patient Appointment System with booking and e-prescription capabilities; and ZassMarket, a multi-tenant commerce marketplace. Descriptions are general information and do not guarantee that a feature is available in every deployment. Availability, pricing, service levels and functionality are set out in the agreement for the relevant product or customer."
+    ]
+  },
+  {
+    "id": "accounts",
+    "title": "3. Accounts and acceptable use",
+    "paragraphs": [
+      "Where a product requires an account, provide accurate information, protect your credentials and promptly notify the operating organization of suspected unauthorized access. You are responsible for activity through your account to the extent permitted by law.",
+      "You may not misuse the website or products, attempt unauthorized access, interfere with security or availability, introduce malicious code, impersonate another person, or violate law or another person’s rights. We may restrict access where reasonably necessary to protect users or services."
+    ]
+  },
+  {
+    "id": "commerce",
+    "title": "4. Orders and marketplace transactions",
+    "paragraphs": [
+      "ZassFood and ZassMarket may connect customers with independent restaurants, merchants, couriers or other sellers. Unless checkout terms say otherwise, sellers are responsible for listings, product descriptions, fulfillment, applicable taxes, returns and customer service. A listing or transaction may have separate seller policies.",
+      "The operator’s role, payment fees, delivery arrangements, cancellation rules and refund rights should be shown in the applicable product flow. Nothing here limits consumer rights that cannot legally be excluded."
+    ]
+  },
+  {
+    "id": "healthcare",
+    "title": "5. Healthcare appointment tools",
+    "paragraphs": [
+      "The appointment platform provides administrative technology such as scheduling, availability management and e-prescription workflows where enabled. It does not diagnose, treat or provide medical advice. Patients should rely on qualified healthcare professionals for care decisions and contact their provider about clinical questions, appointment availability and prescription records.",
+      "Healthcare organizations are responsible for the clinical services they provide, their professional obligations, patient notices and use of patient information. Product availability does not create a clinician-patient relationship with ZassTech."
+    ]
+  },
+  {
+    "id": "ip",
+    "title": "6. Intellectual property",
+    "paragraphs": [
+      "The website’s design, text, branding and software are owned by ZassTech or used with permission, and are protected by applicable intellectual property laws. You may view the website for personal or business evaluation. You may not copy, modify, distribute or commercially exploit site materials except with written permission or where law allows it.",
+      "You retain rights to content you submit. You grant us permission to use it as needed to respond to you or provide a requested service."
+    ]
+  },
+  {
+    "id": "liability",
+    "title": "7. Availability and liability",
+    "paragraphs": [
+      "We work to keep this website useful and available, but provide it on an “as is” and “as available” basis. To the extent permitted by law, we exclude implied warranties and are not liable for indirect or consequential loss arising from use of this informational website. These terms do not exclude liability that cannot legally be limited, including liability for fraud or death or personal injury caused by negligence.",
+      "Separate customer and product agreements may define support, service availability, warranties and liability for a deployed product."
+    ]
+  },
+  {
+    "id": "contact",
+    "title": "8. Changes and contact",
+    "paragraphs": [
+      "We may revise these terms by updating this page. Continued website use after an update means you accept the revised terms to the extent allowed by law. Questions can be sent to rtwebcoder@gmail.com or by phone at 03127449832. ZassTech is based in Pabbi, Nowshera, Pakistan. Add the registered legal name of the business operating ZassTech and confirm the governing jurisdiction before publication."
+    ]
+  }
+]

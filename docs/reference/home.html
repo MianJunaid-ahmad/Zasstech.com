@@ -1,0 +1,712 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Meet ZassTech: a product studio building useful digital platforms for food, healthcare, and commerce."
+    />
+    <meta name="theme-color" content="#5b21b6" />
+    <title>ZassTech | Digital products with a human pulse</title>
+    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="assets/favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ['DM Sans', 'sans-serif'],
+              display: ['Space Grotesk', 'sans-serif'],
+            },
+            colors: { ink: '#10152b', aqua: '#0e9fb0', coral: '#ea684d' },
+          },
+        },
+      };
+    </script>
+    <style>
+      :root {
+        --ink: #10152b;
+        --navy: #10152b;
+        --violet: #5b21b6;
+        --violet-bright: #7c3aed;
+        --aqua: #0e9fb0;
+        --coral: #ea684d;
+        --lime: #d9f45b;
+        --muted: #64708a;
+        --surface: #f7f5ef;
+      }
+      html {
+        scroll-behavior: smooth;
+        scroll-padding-top: 6rem;
+      }
+      body {
+        font-family: 'DM Sans', sans-serif;
+        color: var(--ink);
+        background: #fbfaf7;
+      }
+      .display {
+        font-family: 'Space Grotesk', sans-serif;
+        letter-spacing: -0.055em;
+      }
+      .gradient-hero {
+        background:
+          radial-gradient(circle at 82% 16%, rgba(217, 244, 91, 0.17), transparent 24%),
+          linear-gradient(135deg, #15132c 0%, #241452 45%, #0f6375 100%);
+      }
+      .gradient-text {
+        background: linear-gradient(100deg, #5b21b6, #0e9fb0 58%, #d26b48);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+      }
+      .soft-grid {
+        background-color: var(--surface);
+        background-image:
+          linear-gradient(rgba(16, 21, 43, 0.045) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(16, 21, 43, 0.045) 1px, transparent 1px);
+        background-size: 24px 24px;
+      }
+      .glass {
+        background: rgba(255, 255, 255, 0.13);
+        border: 1px solid rgba(255, 255, 255, 0.27);
+        backdrop-filter: blur(16px);
+      }
+      .card-lift {
+        transition:
+          transform 0.25s ease,
+          box-shadow 0.25s ease;
+        border-radius: 1rem 2rem 1rem 2rem !important;
+      }
+      .card-lift:hover {
+        transform: translateY(-7px) rotate(-0.35deg);
+        box-shadow: 0 24px 60px rgba(34, 26, 76, 0.16);
+      }
+      .orb {
+        position: absolute;
+        border-radius: 9999px;
+        filter: blur(1px);
+        pointer-events: none;
+      }
+      .nav-link {
+        transition: color 0.2s ease;
+      }
+      .nav-link:hover {
+        color: var(--violet);
+      }
+      .form-field:focus {
+        outline: none;
+        border-color: var(--violet-bright);
+        box-shadow: 0 0 0 4px rgba(124, 58, 237, 0.14);
+      }
+      .contact-submit {
+        background: linear-gradient(110deg, #5b21b6, #155e75) !important;
+        color: #fff !important;
+        border: 0;
+        min-height: 52px;
+        text-shadow: 0 1px 2px rgba(24, 16, 55, 0.35);
+      }
+      .contact-submit:hover {
+        background: linear-gradient(110deg, #4c1d95, #0e7490) !important;
+        color: #fff !important;
+      }
+      .contact-form {
+        min-width: 0;
+      }
+      .contact-form input,
+      .contact-form select,
+      .contact-form textarea {
+        box-sizing: border-box;
+        max-width: 100%;
+        min-width: 0;
+      }
+      .brand-mark {
+        position: relative;
+      }
+      .brand-mark:after {
+        content: '';
+        position: absolute;
+        right: -5px;
+        bottom: -5px;
+        width: 11px;
+        height: 11px;
+        border-radius: 999px;
+        background: var(--lime);
+        border: 2px solid #fff;
+      }
+      .signal-label {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        font-size: 0.7rem;
+        font-weight: 800;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+      }
+      .signal-label:before {
+        content: '';
+        width: 2rem;
+        height: 2px;
+        background: currentColor;
+      }
+      .signal-card {
+        border: 1px solid rgba(16, 21, 43, 0.12);
+        background: linear-gradient(145deg, #fff 0%, #f3f0e7 100%);
+        box-shadow: 10px 10px 0 rgba(217, 244, 91, 0.75);
+      }
+      .section-number {
+        font-family: 'Space Grotesk', sans-serif;
+        color: var(--coral);
+        font-size: 0.8rem;
+        font-weight: 800;
+        letter-spacing: 0.14em;
+      }
+      .ink-panel {
+        background: #11152c;
+        color: #fff;
+      }
+      .lime-chip {
+        background: var(--lime);
+        color: #182022;
+      }
+      .editorial-rule {
+        height: 1px;
+        background: rgba(16, 21, 43, 0.16);
+      }
+      @media (max-width: 767px) {
+        .card-lift:hover {
+          transform: translateY(-4px);
+        }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        *,
+        *::before,
+        *::after {
+          scroll-behavior: auto !important;
+          animation-duration: 0.01ms !important;
+          transition-duration: 0.01ms !important;
+        }
+      }
+    </style>
+  </head>
+  <body class="bg-white antialiased">
+    <header
+      class="fixed inset-x-0 top-0 z-50 border-b border-white/70 bg-white/90 backdrop-blur-xl"
+    >
+      <nav
+        class="mx-auto flex max-w-7xl items-center justify-between px-5 py-4 lg:px-8"
+        aria-label="Main navigation"
+      >
+        <a href="index.php" class="brand-mark flex items-center gap-2.5" aria-label="ZassTech home"
+          ><img
+            src="assets/zasstech-mark.svg"
+            alt=""
+            class="h-10 w-10 rounded-xl shadow-lg shadow-blue-200/70"
+          /><span class="display text-2xl font-bold tracking-tight"
+            >Zass<span class="text-violet-700">Tech</span></span
+          ></a
+        >
+        <button
+          id="menu-toggle"
+          class="grid h-10 w-10 place-items-center rounded-xl border border-slate-200 text-slate-700 md:hidden"
+          aria-expanded="false"
+          aria-controls="mobile-menu"
+          aria-label="Open navigation menu"
+        >
+          <svg
+            class="h-5 w-5"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <path d="M4 7h16M4 12h16M4 17h16" />
+          </svg>
+        </button>
+        <div class="hidden items-center gap-8 md:flex">
+          <a class="nav-link text-sm font-semibold text-violet-700" href="index.php">Home</a
+          ><a class="nav-link text-sm font-semibold text-slate-600" href="index.php#products"
+            >Our products</a
+          ><a class="nav-link text-sm font-semibold text-slate-600" href="contact.php">Contact</a
+          ><a
+            href="contact.php"
+            class="rounded-full bg-ink px-5 py-2.5 text-sm font-bold text-white shadow-lg transition hover:bg-violet-700"
+            >Let’s talk <span aria-hidden="true">↗</span></a
+          >
+        </div>
+      </nav>
+      <div
+        id="mobile-menu"
+        class="hidden border-t border-slate-100 bg-white px-5 pb-5 pt-2 md:hidden"
+      >
+        <a
+          class="block rounded-lg px-3 py-3 font-semibold text-slate-700 hover:bg-violet-50"
+          href="index.php"
+          >Home</a
+        ><a
+          class="block rounded-lg px-3 py-3 font-semibold text-slate-700 hover:bg-violet-50"
+          href="index.php#products"
+          >Our products</a
+        ><a
+          class="block rounded-lg px-3 py-3 font-semibold text-slate-700 hover:bg-violet-50"
+          href="contact.php"
+          >Contact</a
+        ><a
+          class="mt-2 block rounded-full bg-violet-700 px-5 py-3 text-center font-bold text-white"
+          href="contact.php"
+          >Let’s talk ↗</a
+        >
+      </div>
+    </header>
+    <main class="pt-[72px]">
+      <script>
+        (() => {
+          const b = document.getElementById('menu-toggle'),
+            m = document.getElementById('mobile-menu');
+          if (!b || !m) return;
+          b.addEventListener('click', () => {
+            const o = b.getAttribute('aria-expanded') === 'true';
+            b.setAttribute('aria-expanded', String(!o));
+            b.setAttribute('aria-label', o ? 'Open navigation menu' : 'Close navigation menu');
+            m.classList.toggle('hidden', o);
+          });
+          m.querySelectorAll('a').forEach((a) =>
+            a.addEventListener('click', () => {
+              m.classList.add('hidden');
+              b.setAttribute('aria-expanded', 'false');
+            }),
+          );
+        })();
+      </script>
+      <section class="gradient-hero relative isolate overflow-hidden text-white">
+        <div class="orb -right-24 -top-20 h-96 w-96 bg-cyan-300/30"></div>
+        <div class="orb -bottom-40 left-1/4 h-96 w-96 bg-violet-300/25"></div>
+        <div
+          class="relative mx-auto grid max-w-7xl items-center gap-10 px-5 py-20 md:grid-cols-[1.04fr_.96fr] md:py-28 lg:px-8 lg:py-32"
+        >
+          <div class="max-w-2xl">
+            <div
+              class="mb-6 inline-flex items-center gap-2 rounded-full border border-white/25 bg-white/10 px-4 py-2 text-sm font-semibold"
+            >
+              <span class="h-2 w-2 rounded-full bg-cyan-300"></span> Ideas into everyday impact
+            </div>
+            <h1 class="display text-5xl font-bold leading-[1.04] sm:text-6xl lg:text-[4.5rem]">
+              We make digital work <span class="text-cyan-200">feel human.</span>
+            </h1>
+            <p class="mt-6 max-w-xl text-lg leading-8 text-white/80">
+              Meet ZassTech. We build the platforms that bring good food closer, make care easier to
+              reach, and help commerce move at full speed.
+            </p>
+            <div class="mt-9 flex flex-wrap gap-3">
+              <a
+                href="#products"
+                class="rounded-full bg-white px-6 py-3.5 text-sm font-bold text-violet-800 shadow-xl transition hover:-translate-y-0.5"
+                >Explore our products ↓</a
+              ><a
+                href="contact.php"
+                class="rounded-full border border-white/40 px-6 py-3.5 text-sm font-bold text-white transition hover:bg-white/10"
+                >Start a conversation ↗</a
+              >
+            </div>
+            <div class="mt-12 flex items-center gap-4">
+              <div class="flex -space-x-2">
+                <span
+                  class="grid h-9 w-9 place-items-center rounded-full border-2 border-violet-500 bg-white text-sm"
+                  >🍔</span
+                ><span
+                  class="grid h-9 w-9 place-items-center rounded-full border-2 border-violet-500 bg-white text-sm"
+                  >✚</span
+                ><span
+                  class="grid h-9 w-9 place-items-center rounded-full border-2 border-violet-500 bg-white text-sm"
+                  >🛍</span
+                >
+              </div>
+              <p class="text-sm text-white/80">
+                <strong class="text-white">One team.</strong> Three connected industries.
+              </p>
+            </div>
+          </div>
+          <div class="relative mx-auto w-full max-w-xl">
+            <div class="absolute -inset-3 rotate-3 rounded-[2rem] bg-white/10"></div>
+            <div
+              class="glass relative rounded-[1.75rem] p-4 shadow-2xl shadow-indigo-950/25 sm:p-6"
+            >
+              <div class="flex items-center justify-between border-b border-white/20 pb-4">
+                <div class="flex items-center gap-2">
+                  <span
+                    class="grid h-8 w-8 place-items-center rounded-lg bg-white text-sm font-black text-violet-700"
+                    >Z</span
+                  ><span class="font-bold">Product universe</span>
+                </div>
+                <span class="text-xs text-white/70">01 — 03</span>
+              </div>
+              <div class="mt-4 grid gap-3">
+                <a
+                  href="#zassfood"
+                  class="group flex items-center gap-4 rounded-2xl bg-white p-4 text-ink transition hover:translate-x-1"
+                  ><span class="grid h-12 w-12 place-items-center rounded-xl bg-orange-100 text-2xl"
+                    >🍜</span
+                  ><span class="flex-1"
+                    ><span class="block font-bold">ZassFood</span
+                    ><span class="mt-1 block text-xs text-slate-500"
+                      >A better way to get together over food</span
+                    ></span
+                  ><span class="text-xl text-violet-700">↗</span></a
+                ><a
+                  href="#healthcare"
+                  class="group flex items-center gap-4 rounded-2xl bg-[#141a2f] p-4 text-white transition hover:translate-x-1"
+                  ><span
+                    class="grid h-12 w-12 place-items-center rounded-xl bg-cyan-300/15 text-2xl"
+                    >＋</span
+                  ><span class="flex-1"
+                    ><span class="block font-bold">Healthcare, connected</span
+                    ><span class="mt-1 block text-xs text-slate-300"
+                      >Appointments, slots &amp; e-prescriptions</span
+                    ></span
+                  ><span class="text-xl text-cyan-300">↗</span></a
+                ><a
+                  href="#zassmarket"
+                  class="group flex items-center gap-4 rounded-2xl bg-white p-4 text-ink transition hover:translate-x-1"
+                  ><span class="grid h-12 w-12 place-items-center rounded-xl bg-blue-100 text-2xl"
+                    >🛒</span
+                  ><span class="flex-1"
+                    ><span class="block font-bold">ZassMarket</span
+                    ><span class="mt-1 block text-xs text-slate-500"
+                      >Commerce that scales with your ambition</span
+                    ></span
+                  ><span class="text-xl text-violet-700">↗</span></a
+                >
+              </div>
+              <div class="mt-4 flex items-center justify-between px-1 text-xs text-white/70">
+                <span>Designed for the real world</span><span>✦ &nbsp; ZassTech</span>
+              </div>
+            </div>
+            <span
+              class="absolute -right-5 -top-5 grid h-14 w-14 rotate-12 place-items-center rounded-2xl bg-white text-2xl shadow-lg"
+              >✦</span
+            >
+          </div>
+        </div>
+        <div class="relative border-t border-white/20">
+          <div class="mx-auto grid max-w-7xl grid-cols-3 px-5 py-6 text-center lg:px-8">
+            <div>
+              <p class="display text-2xl font-bold sm:text-3xl">
+                03<span class="text-cyan-200">+</span>
+              </p>
+              <p class="mt-1 text-xs text-white/70 sm:text-sm">Products with purpose</p>
+            </div>
+            <div class="border-x border-white/20">
+              <p class="display text-2xl font-bold sm:text-3xl">
+                01<span class="text-cyan-200"> team</span>
+              </p>
+              <p class="mt-1 text-xs text-white/70 sm:text-sm">From first sketch to launch</p>
+            </div>
+            <div>
+              <p class="display text-2xl font-bold sm:text-3xl">∞</p>
+              <p class="mt-1 text-xs text-white/70 sm:text-sm">Room to grow</p>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section
+        id="products"
+        class="soft-grid scroll-mt-20 bg-[#f9f8fc] px-5 py-20 sm:py-24 lg:px-8"
+      >
+        <div class="mx-auto max-w-7xl">
+          <div class="mx-auto max-w-2xl text-center">
+            <p class="text-xs font-bold uppercase tracking-[.2em] text-violet-700">
+              Made for what matters
+            </p>
+            <h2 class="display mt-3 text-4xl font-bold sm:text-5xl">
+              Three big ideas. <span class="gradient-text">Built to work.</span>
+            </h2>
+            <p class="mt-4 leading-7 text-slate-600">
+              Useful technology begins with real people. Each ZassTech product is shaped around
+              everyday moments it can make better.
+            </p>
+          </div>
+          <div class="mt-12 grid gap-5 lg:grid-cols-3">
+            <article
+              id="zassfood"
+              class="card-lift group scroll-mt-28 overflow-hidden rounded-3xl border border-slate-100 bg-white shadow-lg"
+            >
+              <div
+                class="relative h-48 overflow-hidden bg-gradient-to-br from-[#ffb270] via-[#ff7b67] to-[#cf47b2] p-6"
+              >
+                <span
+                  class="absolute -right-2 -top-12 text-[10rem] opacity-25 transition group-hover:scale-110"
+                  >🍜</span
+                ><span
+                  class="inline-flex rounded-full bg-white/20 px-3 py-1 text-xs font-bold text-white"
+                  >FOOD, MADE SIMPLE</span
+                >
+                <div class="absolute bottom-5 left-6">
+                  <p class="text-sm text-white/80">A little more joy at your table.</p>
+                  <h3 class="display text-3xl font-bold text-white">ZassFood</h3>
+                </div>
+                <span
+                  class="absolute bottom-5 right-5 grid h-10 w-10 place-items-center rounded-full bg-white text-lg text-violet-700"
+                  >↗</span
+                >
+              </div>
+              <div class="p-6">
+                <p class="leading-7 text-slate-600">
+                  A multi-vendor food delivery platform that brings hungry customers, local
+                  restaurants, and reliable delivery together.
+                </p>
+                <div class="mt-5 flex flex-wrap gap-2">
+                  <span
+                    class="rounded-full bg-orange-50 px-3 py-1.5 text-xs font-semibold text-orange-700"
+                    >Restaurant discovery</span
+                  ><span
+                    class="rounded-full bg-orange-50 px-3 py-1.5 text-xs font-semibold text-orange-700"
+                    >Delivery flow</span
+                  >
+                </div>
+                <a
+                  href="contact.php?interest=ZassFood#contact-form"
+                  class="mt-6 inline-flex items-center gap-2 text-sm font-bold text-violet-700"
+                  >Explore ZassFood →</a
+                >
+              </div>
+            </article>
+            <article
+              id="healthcare"
+              class="card-lift group scroll-mt-28 overflow-hidden rounded-3xl border border-slate-100 bg-white shadow-lg"
+            >
+              <div
+                class="relative h-48 overflow-hidden bg-gradient-to-br from-[#131c39] via-[#285084] to-[#27b9c7] p-6"
+              >
+                <span
+                  class="absolute -right-1 -top-12 text-[10rem] text-white opacity-15 transition group-hover:scale-110"
+                  >✚</span
+                ><span
+                  class="inline-flex rounded-full bg-white/15 px-3 py-1 text-xs font-bold text-white"
+                  >CARE, CONNECTED</span
+                >
+                <div class="absolute bottom-5 left-6">
+                  <p class="text-sm text-white/75">More time for better care.</p>
+                  <h3 class="display text-2xl font-bold text-white">Healthcare platform</h3>
+                </div>
+                <span
+                  class="absolute bottom-5 right-5 grid h-10 w-10 place-items-center rounded-full bg-white text-lg text-violet-700"
+                  >↗</span
+                >
+              </div>
+              <div class="p-6">
+                <p class="leading-7 text-slate-600">
+                  A digital appointment system that helps patients connect with providers through
+                  online booking and clinician-friendly tools.
+                </p>
+                <div class="mt-5 flex flex-wrap gap-2">
+                  <span
+                    class="rounded-full bg-cyan-50 px-3 py-1.5 text-xs font-semibold text-cyan-800"
+                    >Slot management</span
+                  ><span
+                    class="rounded-full bg-cyan-50 px-3 py-1.5 text-xs font-semibold text-cyan-800"
+                    >E-prescriptions</span
+                  >
+                </div>
+                <a
+                  href="contact.php?interest=Healthcare+Appointment+Platform#contact-form"
+                  class="mt-6 inline-flex items-center gap-2 text-sm font-bold text-violet-700"
+                  >Explore healthcare →</a
+                >
+              </div>
+            </article>
+            <article
+              id="zassmarket"
+              class="card-lift group scroll-mt-28 overflow-hidden rounded-3xl border border-slate-100 bg-white shadow-lg"
+            >
+              <div
+                class="relative h-48 overflow-hidden bg-gradient-to-br from-[#5140d6] via-[#596bd8] to-[#36c4c2] p-6"
+              >
+                <span
+                  class="absolute -right-2 -top-12 text-[10rem] opacity-25 transition group-hover:scale-110"
+                  >🛍</span
+                ><span
+                  class="inline-flex rounded-full bg-white/20 px-3 py-1 text-xs font-bold text-white"
+                  >COMMERCE, UNLOCKED</span
+                >
+                <div class="absolute bottom-5 left-6">
+                  <p class="text-sm text-white/80">Space for every storefront.</p>
+                  <h3 class="display text-3xl font-bold text-white">ZassMarket</h3>
+                </div>
+                <span
+                  class="absolute bottom-5 right-5 grid h-10 w-10 place-items-center rounded-full bg-white text-lg text-violet-700"
+                  >↗</span
+                >
+              </div>
+              <div class="p-6">
+                <p class="leading-7 text-slate-600">
+                  A high-performance, multi-tenant marketplace that gives merchants the space and
+                  tools to build a thriving online business.
+                </p>
+                <div class="mt-5 flex flex-wrap gap-2">
+                  <span
+                    class="rounded-full bg-blue-50 px-3 py-1.5 text-xs font-semibold text-blue-800"
+                    >Multiple vendors</span
+                  ><span
+                    class="rounded-full bg-blue-50 px-3 py-1.5 text-xs font-semibold text-blue-800"
+                    >Built to scale</span
+                  >
+                </div>
+                <a
+                  href="contact.php?interest=ZassMarket#contact-form"
+                  class="mt-6 inline-flex items-center gap-2 text-sm font-bold text-violet-700"
+                  >Explore ZassMarket →</a
+                >
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+      <section id="about" class="scroll-mt-20 px-5 py-20 lg:px-8 lg:py-24">
+        <div class="mx-auto grid max-w-7xl items-center gap-12 md:grid-cols-2">
+          <div class="relative mx-auto w-full max-w-lg">
+            <div
+              class="absolute -inset-4 rounded-[2rem] bg-gradient-to-br from-violet-100 to-cyan-100"
+            ></div>
+            <div
+              class="relative overflow-hidden rounded-[1.5rem] bg-[#12162d] p-8 text-white sm:p-10"
+            >
+              <div class="flex items-center justify-between">
+                <span class="text-sm font-semibold text-white/70">Our point of view</span
+                ><span class="text-xl text-cyan-300">✦</span>
+              </div>
+              <p class="display mt-16 text-4xl font-bold leading-tight sm:text-5xl">
+                Good tech<br />makes room<br /><span class="text-cyan-300">for people.</span>
+              </p>
+              <div class="mt-10 flex items-center gap-3 border-t border-white/15 pt-5">
+                <div class="h-1.5 flex-1 rounded-full bg-white/15">
+                  <div
+                    class="h-full w-2/3 rounded-full bg-gradient-to-r from-violet-400 to-cyan-300"
+                  ></div>
+                </div>
+                <span class="text-xs text-white/60">Always evolving</span>
+              </div>
+            </div>
+          </div>
+          <div>
+            <p class="text-xs font-bold uppercase tracking-[.2em] text-violet-700">
+              A little about us
+            </p>
+            <h2 class="display mt-3 text-4xl font-bold sm:text-5xl">
+              We’re here for the <span class="gradient-text">“what if?”</span>
+            </h2>
+            <p class="mt-5 leading-8 text-slate-600">
+              At ZassTech, we believe ambitious ideas deserve technology that feels intuitive,
+              dependable, and ready for real life. We turn complex workflows into products people
+              can actually enjoy using.
+            </p>
+            <p class="mt-4 leading-8 text-slate-600">
+              From first sketch to launch and beyond, our focus stays on thoughtful details,
+              dependable experiences, and foundations built for growth.
+            </p>
+            <div class="mt-7 grid grid-cols-2 gap-4">
+              <div class="rounded-2xl bg-violet-50 p-4">
+                <p class="display text-2xl font-bold text-violet-800">People first</p>
+                <p class="mt-1 text-xs text-slate-600">Clear, considered experiences</p>
+              </div>
+              <div class="rounded-2xl bg-cyan-50 p-4">
+                <p class="display text-2xl font-bold text-cyan-800">Built to grow</p>
+                <p class="mt-1 text-xs text-slate-600">A solid base for your next step</p>
+              </div>
+            </div>
+            <a
+              href="contact.php"
+              class="mt-7 inline-flex items-center gap-2 font-bold text-violet-700"
+              >Meet your next product partner →</a
+            >
+          </div>
+        </div>
+      </section>
+      <section class="px-5 pb-20 lg:px-8">
+        <div
+          class="gradient-hero relative mx-auto max-w-7xl overflow-hidden rounded-[2rem] px-6 py-12 text-white shadow-2xl sm:px-12 sm:py-14"
+        >
+          <div class="orb -right-16 -top-32 h-80 w-80 bg-cyan-300/30"></div>
+          <div
+            class="relative flex flex-col items-start justify-between gap-7 md:flex-row md:items-center"
+          >
+            <div class="max-w-xl">
+              <p class="text-xs font-bold uppercase tracking-[.2em] text-white/70">
+                Your idea starts here
+              </p>
+              <h2 class="display mt-3 text-3xl font-bold sm:text-4xl">
+                Let’s build something people love.
+              </h2>
+              <p class="mt-3 leading-7 text-white/80">
+                Tell us what you’re imagining. We’d love to hear about it.
+              </p>
+            </div>
+            <a
+              href="contact.php"
+              class="shrink-0 rounded-full bg-white px-6 py-3.5 text-sm font-bold text-violet-800 shadow-lg transition hover:-translate-y-0.5"
+              >Talk with ZassTech ↗</a
+            >
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer class="bg-[#10152b] text-white">
+      <div class="mx-auto max-w-7xl px-5 py-14 lg:px-8">
+        <div class="grid gap-10 md:grid-cols-2 lg:grid-cols-4">
+          <div class="lg:col-span-2">
+            <a href="index.php" class="inline-flex items-center gap-3"
+              ><img src="assets/zasstech-mark.svg" alt="" class="h-10 w-10 rounded-xl" /><span
+                class="display text-2xl font-bold"
+                >Zass<span class="text-cyan-300">Tech</span></span
+              ></a
+            >
+            <p class="mt-4 max-w-sm text-sm leading-7 text-slate-400">
+              Digital products with a human pulse. We help ambitious teams create better everyday
+              experiences.
+            </p>
+          </div>
+          <div>
+            <h2 class="text-sm font-bold">Explore</h2>
+            <div class="mt-4 grid gap-3 text-sm text-slate-400">
+              <a class="hover:text-white" href="index.php#products">Products</a
+              ><a class="hover:text-white" href="index.php#about">About ZassTech</a
+              ><a class="hover:text-white" href="contact.php">Contact us</a>
+            </div>
+          </div>
+          <div>
+            <h2 class="text-sm font-bold">Good to know</h2>
+            <div class="mt-4 grid gap-3 text-sm text-slate-400">
+              <a class="hover:text-white" href="privacy-policy.php">Privacy policy</a
+              ><a class="hover:text-white" href="terms-and-conditions.php">Terms &amp; conditions</a
+              ><a
+                href="/cdn-cgi/l/email-protection#d4a6a0a3b1b6b7bbb0b1a694b3b9b5bdb8fab7bbb9"
+                class="hover:text-white"
+                ><span
+                  class="__cf_email__"
+                  data-cfemail="85f7f1f2e0e7e6eae1e0f7c5e2e8e4ece9abe6eae8"
+                  >[email&#160;protected]</span
+                ></a
+              >
+            </div>
+          </div>
+        </div>
+        <div
+          class="mt-12 flex flex-col gap-3 border-t border-white/10 pt-6 text-xs text-slate-500 sm:flex-row sm:items-center sm:justify-between"
+        >
+          <p>© 2026 ZassTech. All rights reserved.</p>
+          <p>Thoughtfully engineered for what’s next.</p>
+        </div>
+      </div>
+    </footer>
+    <script
+      data-cfasync="false"
+      src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"
+    ></script>
+  </body>
+</html>
