@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import { ArrowUpRight, Cross, ShoppingBag, Utensils } from 'lucide-react';
+import { ArrowUpRight, Cross, Download, ShoppingBag, Utensils } from 'lucide-react';
 import type { Product } from '@/data/products';
 
 export function ProductCard({ product }: { product: Product }) {
@@ -31,6 +31,20 @@ export function ProductCard({ product }: { product: Product }) {
             <span key={feature}>{feature}</span>
           ))}
         </div>
+        {product.slug === 'zassfood' && (
+          <div className="apk-download">
+            <a
+              className="button button-primary apk-download-button"
+              href="/downloads/zassfood.apk"
+              download
+              aria-describedby="zassfood-android"
+            >
+              <Download size={18} aria-hidden="true" />
+              Download APK
+            </a>
+            <small id="zassfood-android">Available for Android</small>
+          </div>
+        )}
         <Link
           className="text-link"
           href={`/contact-us?interest=${encodeURIComponent(product.name)}#contact-form`}

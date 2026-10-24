@@ -547,6 +547,22 @@ img {
   color: #574271;
   font-weight: 550;
 }
+.apk-download {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 9px;
+  margin-top: 24px;
+}
+.apk-download-button {
+  width: 100%;
+  gap: 10px;
+}
+.apk-download small {
+  align-self: center;
+  color: #566179;
+  font-size: 11px;
+}
 .text-link {
   display: inline-flex;
   align-items: center;

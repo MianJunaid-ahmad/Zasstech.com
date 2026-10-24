@@ -57,4 +57,10 @@ Monitor health, aggregate 5xx counts and SMTP delivery without recording request
 
 ## Release verification and rollback
 
+### ZassFood Android download
+
+Before releasing the APK button, copy the supplied `zassdeliver-main-3877c1b(1).apk` to `public/downloads/zassfood.apk`. The binary must be included in the deployment; the button URL is `/downloads/zassfood.apk` on both the home and Products pages. Do not substitute a different APK. The Next.js configuration sets the Android package MIME type and attachment disposition. Both the Docker build and the Node start helper include public assets.
+
+After deployment, check `curl -I https://zasstech.com/downloads/zassfood.apk`: expect HTTP 200, `Content-Type: application/vnd.android.package-archive`, and `Content-Disposition: attachment`. Download the production file and compare its SHA-256 checksum with the supplied APK. Click Download APK on desktop and Android, and check the button at mobile, tablet and desktop widths. A successful build alone does not verify the production download.
+
 Run typecheck, lint, unit tests, build and Playwright before replacing the running image. Check six routes, canonical origin, robots/sitemap, logo, keyboard navigation and a controlled SMTP delivery. Retain the previous container image and environment. Roll back by deploying the previous image/tag and matching environment. Docker/HTTPS/live SMTP were not verified until explicitly tested in the target infrastructure.
