@@ -1,6 +1,9 @@
 import { cp, mkdir, access, readFile } from 'node:fs/promises';
 import { spawn } from 'node:child_process';
 import { parseEnv } from 'node:util';
+import { ensureApk } from './ensure-apk.mjs';
+
+await ensureApk();
 
 // Match production dotenv precedence without overwriting externally supplied secrets.
 let fileEnvironment = {};

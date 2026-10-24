@@ -35,7 +35,7 @@ export function ProductCard({ product }: { product: Product }) {
           <div className="apk-download">
             <a
               className="button button-primary apk-download-button"
-              href="/downloads/zassfood.apk"
+              href="/downloads/zassfood.apk?v=3877c1b"
               download
               aria-describedby="zassfood-android"
             >
